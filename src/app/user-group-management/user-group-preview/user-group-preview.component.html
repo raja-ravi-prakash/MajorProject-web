@@ -1,0 +1,40 @@
+<div class="user-group-form">
+    <div class="">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="name">
+        </mat-form-field>
+    </div>
+
+    <div class="">
+        <mat-form-field appearance="fill">
+            <mat-label>Permissions</mat-label>
+            <mat-select multiple [(ngModel)]="selectedPermissions">
+              <mat-option *ngFor="let permission of permissions" [value]="permission.value">
+                {{permission.viewValue}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="">
+        <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Users</mat-label>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let user of userNames" (removed)="remove(user)">
+                {{user.name}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="Enter User Names"
+                     [matChipInputFor]="chipList"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="createPost()">{{ userGroupId ? "Update": "Submit"}}</button>
+</div>

@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { MainModuleChooseComponent } from './main-module-choose/main-module-choose.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './services/auth.guard';
+import { UserGroupManagementComponent } from './user-group-management/user-group-management.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'entity',
         component: EntityManagementComponent
+      },
+      {
+        path: 'user-group-management',
+        component: UserGroupManagementComponent
       }
     ]
   },
