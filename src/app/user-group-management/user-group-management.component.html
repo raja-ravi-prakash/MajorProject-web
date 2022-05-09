@@ -1,0 +1,12 @@
+<button class="floating-action-button" mat-fab (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+</button>
+
+<div class="user-groups">
+    <div matRipple class="user-group" *ngFor="let item of userGroupList">
+        <mat-icon  class="folder-icon">perm_data_setting</mat-icon>
+        <mat-icon  color="warn" class="delete-icon" (click)="deleteUserGroup(item._id)">delete</mat-icon>
+        <mat-icon  color="primary" class="edit-icon" (click)="openDialog(item._id)">edit</mat-icon>
+        <span>{{item.name}}</span>
+    </div>
+</div>

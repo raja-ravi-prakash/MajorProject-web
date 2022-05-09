@@ -22,6 +22,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
+import { MatChipsModule } from '@angular/material/chips';
 //* material componets
 
 import { HomeComponent } from './home/home.component';
@@ -32,6 +34,8 @@ import { RegisterComponent } from './register/register.component';
 import { RequestInterceptor } from './common/services/http.interceptor';
 import { MainModuleChooseComponent } from './main-module-choose/main-module-choose.component';
 import { FaceFilteringComponent } from './ml-filtering/face-filtering/face-filtering.component';
+import { UserGroupManagementComponent } from './user-group-management/user-group-management.component';
+import { UserGroupPreviewComponent } from './user-group-management/user-group-preview/user-group-preview.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,9 @@ import { FaceFilteringComponent } from './ml-filtering/face-filtering/face-filte
     LoginComponent,
     RegisterComponent,
     MainModuleChooseComponent,
-    FaceFilteringComponent
+    FaceFilteringComponent,
+    UserGroupManagementComponent,
+    UserGroupPreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,9 @@ import { FaceFilteringComponent } from './ml-filtering/face-filtering/face-filte
     MatSnackBarModule,
     MatRippleModule,
     ToastrModule.forRoot(),
-    MatTooltipModule
+    MatTooltipModule,
+    MatSelectModule,
+    MatChipsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true
