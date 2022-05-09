@@ -1,0 +1,7 @@
+<div class="path">
+    <button mat-icon-button (click)="routePop()"><mat-icon>arrow_back</mat-icon></button>
+</div>
+
+<div class="faces">
+    <img class="face" *ngFor="let entity of primaryEntities" src="{{entity.file}}"/>
+</div>

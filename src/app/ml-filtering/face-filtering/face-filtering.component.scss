@@ -1,0 +1,14 @@
+.path {
+    padding: 10px;
+    margin: 10px;   
+}
+
+.faces {
+    width: 100%;
+    flex-direction: row;
+    .face {
+        border-radius: 50%;
+        width: 100px;
+        padding: 10px;
+    }
+}

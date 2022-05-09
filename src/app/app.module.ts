@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RequestInterceptor } from './common/services/http.interceptor';
 import { MainModuleChooseComponent } from './main-module-choose/main-module-choose.component';
+import { FaceFilteringComponent } from './ml-filtering/face-filtering/face-filtering.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MainModuleChooseComponent } from './main-module-choose/main-module-choo
     EntityCreationComponent,
     LoginComponent,
     RegisterComponent,
-    MainModuleChooseComponent
+    MainModuleChooseComponent,
+    FaceFilteringComponent
   ],
   imports: [
     BrowserModule,

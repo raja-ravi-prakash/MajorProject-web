@@ -37,3 +37,9 @@ export interface ISession{
     payload: string
     expiry: Date
 }
+
+export interface IPrimaryEntity extends Document {
+    _id: string,
+    file: string,
+    user: string
+}

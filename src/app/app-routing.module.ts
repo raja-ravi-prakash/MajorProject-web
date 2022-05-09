@@ -5,6 +5,7 @@ import { EntityManagementComponent } from './entity-management/entity-management
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MainModuleChooseComponent } from './main-module-choose/main-module-choose.component';
+import { FaceFilteringComponent } from './ml-filtering/face-filtering/face-filtering.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './services/auth.guard';
 
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'entity',
         component: EntityManagementComponent
+      },
+      {
+        path: 'face-filter',
+        component: FaceFilteringComponent
       }
     ]
   },
