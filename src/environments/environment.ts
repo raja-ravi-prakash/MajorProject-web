@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  secretKey: "this is a very big secret key",
+  iv: 'custom iv',
+  salt: "custom salt",
+  url: 'http://localhost:3600'
 };
 
 /*

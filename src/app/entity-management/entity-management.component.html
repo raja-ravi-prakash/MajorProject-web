@@ -1,0 +1,19 @@
+<button class="floating-action-button" mat-fab (click)="openEntityManagementDialog()">
+    <mat-icon>add</mat-icon>
+</button>
+
+<div class="path">
+    <button mat-icon-button (click)="routePop()"><mat-icon>arrow_back</mat-icon></button>
+    <span *ngFor="let route of path; let i = index" class="route" (click)="jumpToPath(i)">
+        {{route.name}} >
+    </span> 
+</div>
+
+<div class="entities">
+    <div matRipple class="entity" *ngFor="let entity of entities" >
+        <mat-icon (click)="pathChange(entity)" *ngIf="entity.type == entypes.FOLDER" class="folder-icon">folder</mat-icon>
+        <mat-icon (click)="pathChange(entity)" *ngIf="entity.type == entypes.FILE" class="folder-icon">description</mat-icon>
+        <mat-icon (click)="deleteEntity(entity._id)" color="warn" class="delete-icon">delete</mat-icon>
+        <span>{{entity.name}}</span>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.content {
+    background-color: rgb(14, 14, 14);
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.login {
+    background-color: white;
+    width: min-content;
+    padding: 50px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    .form-field {
+        width: 300px;
+    }
+    span {
+        padding: 10px;
+    }
+}

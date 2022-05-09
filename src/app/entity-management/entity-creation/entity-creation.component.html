@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Entity Creation</h2>
+<div class="content" [ngSwitch]="entityState">
+    <mat-radio-group class="radio-group" aria-label="Select an option" [(ngModel)]="entityState">
+        <mat-radio-button value="folder">Folder</mat-radio-button>
+        <mat-radio-button value="file">File</mat-radio-button>
+    </mat-radio-group>
+
+    <!-- folder creation  -->
+    <div class="folderCreation action" *ngSwitchCase="'folder'">
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Enter Folder Name</mat-label>
+            <input matInput type="text" [(ngModel)]="folderCreationName">
+            <button *ngIf="folderCreationName" matSuffix mat-icon-button aria-label="Clear" (click)="folderCreationName=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+    <!-- folder creation -->
+    
+    <!-- file creation -->
+    <div class="fileCreation action" *ngSwitchCase="'file'">
+        <input type="file" (change)="handleFileInput($event)">
+    </div>
+    <!-- file creation -->
+
+</div>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button color="primary" (click)="create()">Create</button>
+</mat-dialog-actions>
