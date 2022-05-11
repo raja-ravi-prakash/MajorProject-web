@@ -23,6 +23,19 @@
     </div>
     <!-- file creation -->
 
+    <!-- common section -->
+    
+
+</div>
+<div class="" style="margin-top: 20px; margin-left: 20px;">
+    <mat-form-field appearance="fill" *ngIf="!(entityState=='folder')">
+        <mat-label>Choose permission</mat-label>
+        <mat-select multiple [(ngModel)]="selectedUserGroups">
+          <mat-option *ngFor="let userGroup of userGroups" [value]="userGroup._id">
+            {{userGroup.name}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
 </div>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>

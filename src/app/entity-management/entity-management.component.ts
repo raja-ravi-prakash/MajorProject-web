@@ -30,7 +30,7 @@ export class EntityManagementComponent implements OnInit {
   public path: IEntity[] = [];
   public entities: IEntity[] = [];
   public entypes = EntityType;
-
+  public filter:string = "MINE";
   private getCurrentRoot(){
     return this.path.slice(-1)[0];
   }
@@ -65,7 +65,7 @@ export class EntityManagementComponent implements OnInit {
     let dialogRes = this.dialog.open(EntityCreationComponent);
     dialogRes.afterClosed().subscribe(res=>{
       if(res.type == "folder")
-        this.entityService.createFolder(res.name, this.getCurrentRoot()._id).subscribe(res=>{
+        this.entityService.createFolder(res.name,res.userGroups, this.getCurrentRoot()._id).subscribe(res=>{
           if(res.success)
             this.toastService.success(res.message);
           else 
@@ -73,7 +73,7 @@ export class EntityManagementComponent implements OnInit {
           this.getAllEntities();
         });
       else if(res.type == "file")
-        this.entityService.createFile(res.file, res.fileName, this.getCurrentRoot()._id).subscribe(res=>{
+        this.entityService.createFile(res.file, res.fileName,res.userGroups, this.getCurrentRoot()._id).subscribe(res=>{
           if(res.success)
             this.toastService.success(res.message);
           else 
@@ -84,13 +84,26 @@ export class EntityManagementComponent implements OnInit {
   }
 
   public getAllEntities(){
-    this.entityService.getAllEntities(this.getCurrentRoot()._id).subscribe(result=>{
-      if(result.success){
-        this.entities = result.data;
-      }
-      else 
-        this.toastService.error(result.message);
-    });
+    if(this.filter =="MINE")
+    {
+      this.entityService.getAllEntities(this.getCurrentRoot()._id).subscribe(result=>{
+        if(result.success){
+          this.entities = result.data;
+        }
+        else 
+          this.toastService.error(result.message);
+      });
+    }
+    else
+    {
+      this.entityService.getMyEntities(this.getCurrentRoot()._id).subscribe(result=>{
+        if(result.success){
+          this.entities = result.data;
+        }
+        else 
+          this.toastService.error(result.message);
+      });
+    }
   }
 
   public deleteEntity(id: string){
@@ -101,6 +114,10 @@ export class EntityManagementComponent implements OnInit {
         this.toastService.error(res.message);
       this.getAllEntities();
     })
+  }
+
+  public onChangeSelect(event:any){
+    this.getAllEntities();
   }
 
 }
