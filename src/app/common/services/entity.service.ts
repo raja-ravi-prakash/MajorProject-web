@@ -15,23 +15,31 @@ export class EntitySerice extends BaseService {
 
     private url = environment.url + '/entity/';
 
-    public createFolder(name: string, parent: string){
+    public createFolder(name: string,userGroups:string[], parent: string){
         return this.post(this.url + "folder", {
             child: name,
-            parent: parent
+            parent: parent,
+            userGroups: userGroups
         });
     }
 
-    public createFile(file: string, fileName: string, rootname: string){
+    public createFile(file: string, fileName: string,userGroups:string[], rootname: string){
         return this.post(this.url + "file", {
             file: file,
             parent: rootname,
-            name: fileName
+            name: fileName,
+            userGroups: userGroups
         });
     }
 
     public getAllEntities(rootname: string): Observable<CustomResponse<IEntity[]>>{
         return this.post(this.url, {
+            parent: rootname   
+        });
+    }
+
+    public getMyEntities(rootname: string): Observable<CustomResponse<IEntity[]>>{
+        return this.post(this.url+'get-my-files', {
             parent: rootname   
         });
     }
