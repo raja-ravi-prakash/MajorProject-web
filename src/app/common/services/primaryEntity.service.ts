@@ -22,4 +22,10 @@ export class PrimaryEntitySerice extends BaseService {
     public deleteEntity(id: string) {
         return this.delete(`${this.url}`, id);
     }
+
+    public getEntitiesByPrimaryEntity(id: string): Observable<CustomResponse<IEntity[]>>{
+        return this.post(this.url + 'entity', {
+            primaryEntity: id
+        });
+    }
 }

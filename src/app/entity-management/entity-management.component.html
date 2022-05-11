@@ -12,8 +12,12 @@
 <div class="entities">
     <div matRipple class="entity" *ngFor="let entity of entities" >
         <mat-icon (click)="pathChange(entity)" *ngIf="entity.type == entypes.FOLDER" class="folder-icon">folder</mat-icon>
-        <mat-icon (click)="pathChange(entity)" *ngIf="entity.type == entypes.FILE" class="folder-icon">description</mat-icon>
+        <mat-icon (click)="pathChange(entity)" *ngIf="(entity.type == entypes.FILE) && !entity.file.includes('image')" class="folder-icon">description</mat-icon>
         <mat-icon (click)="deleteEntity(entity._id)" color="warn" class="delete-icon">delete</mat-icon>
+        <img class="image-preview" (click)="pathChange(entity)" *ngIf="(entity.type == entypes.FILE) && entity.file.includes('image')" src="{{entity.file}}"/>
+        <div class="faces">
+            <img class="face" *ngFor="let face of entity.primaryEntity" src="{{face.file}}"/>
+        </div>
         <span>{{entity.name}}</span>
     </div>
 </div>

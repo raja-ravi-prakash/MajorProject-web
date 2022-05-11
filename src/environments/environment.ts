@@ -7,7 +7,7 @@ export const environment = {
   secretKey: "this is a very big secret key",
   iv: 'custom iv',
   salt: "custom salt",
-  url: 'http://ec2-3-110-177-157.ap-south-1.compute.amazonaws.com:3600'
+  url: 'http://localhost:3600'
 };
 
 /*

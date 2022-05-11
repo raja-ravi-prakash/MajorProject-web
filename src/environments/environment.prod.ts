@@ -3,5 +3,5 @@ export const environment = {
   secretKey: "this is a very big secret key",
   iv: 'custom iv',
   salt: "custom salt",
-  url: ''
+  url: 'http://localhost:3600'
 };

@@ -12,3 +12,34 @@
         padding: 10px;
     }
 }
+
+.entities {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    .entity {
+        border: 1px solid grey;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        
+        .entity-preview {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            img {
+                height: 90%;
+                background-size: auto;
+            }
+            span {
+                height: 10%;
+            }
+        }
+    }
+}

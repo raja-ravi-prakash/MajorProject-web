@@ -3,5 +3,14 @@
 </div>
 
 <div class="faces">
-    <img class="face" *ngFor="let entity of primaryEntities" src="{{entity.file}}"/>
+    <img (click)="selectPrimaryEntity(entity._id)" class="face" *ngFor="let entity of primaryEntities" src="{{entity.file}}"/>
+</div>
+
+<div class="entities">
+    <div matRipple class="entity" *ngFor="let entity of entities">
+        <div class="entity-preview">
+            <img class="face-preview" src="{{entity.file}}"/>
+            <h2>{{entity.name}}</h2>
+        </div>
+    </div>
 </div>

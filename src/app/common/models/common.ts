@@ -28,7 +28,8 @@ export interface IEntity{
     type: EntityType,
     name: string,
     parent: string,
-    file: string
+    file: string,
+    primaryEntity: IPrimaryEntity[]
 }
 
 export interface ISession{
