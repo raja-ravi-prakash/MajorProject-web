@@ -36,6 +36,7 @@ import { MainModuleChooseComponent } from './main-module-choose/main-module-choo
 import { FaceFilteringComponent } from './ml-filtering/face-filtering/face-filtering.component';
 import { UserGroupManagementComponent } from './user-group-management/user-group-management.component';
 import { UserGroupPreviewComponent } from './user-group-management/user-group-preview/user-group-preview.component';
+import { AuthStateComponent } from './auth-state/auth-state.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { UserGroupPreviewComponent } from './user-group-management/user-group-pr
     MainModuleChooseComponent,
     FaceFilteringComponent,
     UserGroupManagementComponent,
-    UserGroupPreviewComponent
+    UserGroupPreviewComponent,
+    AuthStateComponent
   ],
   imports: [
     BrowserModule,

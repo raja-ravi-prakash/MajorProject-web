@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthStateComponent } from './auth-state/auth-state.component';
 
 import { EntityManagementComponent } from './entity-management/entity-management.component';
 import { HomeComponent } from './home/home.component';
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: '',
+    component: AuthStateComponent
   }
 ];
 
