@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import LoadingService from './common/services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'c15-frontend';
+  public loading: boolean = false;
+  
+  constructor(){
+    LoadingService.loadingEvent.subscribe(result=>{
+      this.loading = result;
+    });
+  }
 }

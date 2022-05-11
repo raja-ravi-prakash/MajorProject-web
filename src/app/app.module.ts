@@ -24,6 +24,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 //* material componets
 
 import { HomeComponent } from './home/home.component';
@@ -71,7 +72,8 @@ import { AuthStateComponent } from './auth-state/auth-state.component';
     ToastrModule.forRoot(),
     MatTooltipModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressBarModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true

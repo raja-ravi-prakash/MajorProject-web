@@ -22,8 +22,11 @@ export class AuthStateComponent implements OnInit {
     payload = this.cryptohelper.decrypt(payload as string);
     payload = JSON.parse(payload);
     
-    if(username != payload.username)
+    if(username != payload.username){
       sessionStorage.clear();
+      this.router.navigate(['/login']);
+    }
+    this.router.navigate(['/home']);
   }
 
 }
