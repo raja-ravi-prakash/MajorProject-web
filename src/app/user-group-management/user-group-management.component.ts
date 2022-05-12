@@ -3,6 +3,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { UserGroupPreviewComponent } from './user-group-preview/user-group-preview.component';
 import { UserGroupService} from '../../app/common/services/userGroup.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-user-group-management',
   templateUrl: './user-group-management.component.html',
@@ -11,7 +13,12 @@ import { ToastrService } from 'ngx-toastr';
 export class UserGroupManagementComponent implements OnInit {
 
   userGroupList:any[]=[]
-  constructor(private dialog:MatDialog, private userGroupService:UserGroupService, private toastService:ToastrService) { }
+  constructor(
+    private dialog:MatDialog, 
+    private userGroupService:UserGroupService, 
+    private toastService:ToastrService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
    this.getUserGroups();
@@ -20,13 +27,11 @@ export class UserGroupManagementComponent implements OnInit {
   getUserGroups()
   {
     this.userGroupService.getAllUserGroups().subscribe(res=>{
-      console.log(this.userGroupList)
       this.userGroupList = res.data
     })
   }
   openDialog(id?:string): void {
 
-    console.log(id)
     const dialogRef = this.dialog.open(UserGroupPreviewComponent, {
       width: '500px',
       data:{id:id?id:null},
@@ -54,5 +59,9 @@ export class UserGroupManagementComponent implements OnInit {
       }
 
     })
+  }
+
+  public routePop(){
+    return this.router.navigate(['/home']);
   }
 }

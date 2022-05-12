@@ -31,6 +31,7 @@
     cursor: pointer;
     flex-direction: column;
     display: flex;
+    background-color: rgb(242, 242, 242);
     align-items: center;
     span {
         border-top: 1px solid #dadce0;
@@ -40,33 +41,24 @@
         font-size: 15px;
         padding: 10px;
     }
-    &:hover > .delete-icon {
-        opacity: 1;
+    .folder-icon {
+        fill: #474747;
+        font-size: 100px;
+        width: max-content;
+        height: max-content;
+        vertical-align: middle;
     }
 
-    &:hover > .edit-icon {
-        opacity: 1;
+    .actions {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background-color: white;
+        border-radius: 5px;
+        padding: 5px;
     }
-}
 
-.folder-icon {
-    fill: #474747;
-    font-size: 100px;
-    width: max-content;
-    height: max-content;
-    vertical-align: middle;
-}
-
-.delete-icon {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    opacity: 0;
-}
-
-.edit-icon {
-    position: absolute;
-    right: 10px;
-    top:35px;
-    opacity: 0;
+    &:hover {
+        box-shadow: 1px 1px 5px grey;
+    }
 }

@@ -1,12 +1,18 @@
 <button class="floating-action-button" mat-fab (click)="openDialog()">
-    <mat-icon>add</mat-icon>
+    <mat-icon>group_add</mat-icon>
 </button>
+
+<div class="path">
+    <button mat-icon-button (click)="routePop()"><mat-icon>arrow_back</mat-icon></button>
+</div>
 
 <div class="user-groups">
     <div matRipple class="user-group" *ngFor="let item of userGroupList">
-        <mat-icon  class="folder-icon">perm_data_setting</mat-icon>
-        <mat-icon  color="warn" class="delete-icon" (click)="deleteUserGroup(item._id)">delete</mat-icon>
-        <mat-icon  color="primary" class="edit-icon" (click)="openDialog(item._id)">edit</mat-icon>
+        <mat-icon [ngStyle]="{'color':'grey'}" class="folder-icon">group</mat-icon>
+        <div class="actions">
+            <mat-icon color="warn" class="delete-icon" (click)="deleteUserGroup(item._id)">delete</mat-icon>
+            <mat-icon color="primary" class="edit-icon" (click)="openDialog(item._id)">edit</mat-icon>
+        </div>
         <span>{{item.name}}</span>
     </div>
 </div>

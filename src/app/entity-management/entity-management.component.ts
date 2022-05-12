@@ -35,17 +35,34 @@ export class EntityManagementComponent implements OnInit {
     return this.path.slice(-1)[0];
   }
 
-  public pathChange(entity: IEntity){
+  public async pathChange(entity: IEntity){
     if(entity.type == EntityType.FILE){
-      let w = window.open('about:blank') as Window;
-      let image = new Image();
-      image.src = entity.file;
-      w.document.write(image.outerHTML);
+      this.openFile(entity.file, entity.name);
     }
     else if(entity.type == EntityType.FOLDER){
       this.path.push(entity);
       this.getAllEntities();
     }
+  }
+
+  public openFile(dataUri: string, fileName: string){
+    var win = window.open("", "_blank") as Window;
+    win.document.write('<iframe name="c15-major-project" src="' + dataUri + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>')
+    win.document.title = 'c15-major-project';
+  }
+
+  public downloadEntity(dataUri: string, fileName: string){
+    fetch(dataUri)
+        .then(res=>res.blob())
+        .then(blob=>{
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = fileName;
+          document.body.append(link);
+          link.click();
+          link.remove();
+          setTimeout(() => URL.revokeObjectURL(link.href), 7000);
+        });
   }
 
   public routePop(){

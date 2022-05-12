@@ -26,12 +26,12 @@
         border-radius: 5px;
         width: max-content;
         user-select: none;
-        cursor: pointer;
         flex-direction: column;
         display: flex;
         align-items: center;
         height: 280px;
         width: 25vw;
+        background-color: rgb(242, 242, 242);
         span {
             border-top: 1px solid #dadce0;
             width: 100%;
@@ -40,33 +40,53 @@
             font-size: 15px;
             padding: 10px;
         }
-        &:hover > .delete-icon {
-            opacity: 1;
+        .folder-icon {
+            fill: #474747;
+            font-size: 200px;
+            width: max-content;
+            height: max-content;
+            vertical-align: middle;
+            cursor: pointer;
         }
-    }
-    .folder-icon {
-        fill: #474747;
-        font-size: 200px;
-        width: max-content;
-        height: max-content;
-        vertical-align: middle;
-    }
     
-    .delete-icon {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        opacity: 0;
-    }
+        .actions {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 5px;
+    
+            .delete-icon {
+                width: max-content;
+                height: max-content;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+        
+            .download-icon {
+                width: max-content;
+                height: max-content;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+        
+        }
+    
+        .image-preview {
+            height: 200px;
+            cursor: pointer;
+        }
+    
+        .faces {
+            .face {
+                height: 30px;
+                border-radius: 50%;
+            }
+        }
 
-    .image-preview {
-        height: 200px;
-    }
-
-    .faces {
-        .face {
-            height: 30px;
-            border-radius: 50%;
+        &:hover {
+            box-shadow: 1px 1px 5px grey;
         }
     }
 }

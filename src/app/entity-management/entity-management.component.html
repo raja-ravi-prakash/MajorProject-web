@@ -28,12 +28,15 @@
 
 <div class="entities">
     <div matRipple class="entity" *ngFor="let entity of entities" >
-        <mat-icon (click)="pathChange(entity)" *ngIf="entity.type == entypes.FOLDER" class="folder-icon">folder</mat-icon>
-        <mat-icon (click)="pathChange(entity)" *ngIf="(entity.type == entypes.FILE) && !entity.file.includes('image')" class="folder-icon">description</mat-icon>
-        <mat-icon (click)="deleteEntity(entity._id)" color="warn" class="delete-icon">delete</mat-icon>
+        <mat-icon [ngStyle]="{'color':'grey'}" (click)="pathChange(entity)" *ngIf="entity.type == entypes.FOLDER" class="folder-icon">folder</mat-icon>
+        <mat-icon [ngStyle]="{'color':'grey'}" (click)="pathChange(entity)" *ngIf="(entity.type == entypes.FILE) && !entity.file.includes('image')" class="folder-icon">description</mat-icon>
+        <div class="actions">
+            <mat-icon (click)="deleteEntity(entity._id)" color="warn" class="delete-icon">delete</mat-icon>
+            <mat-icon *ngIf="entity.type == entypes.FILE" (click)="downloadEntity(entity.file, entity.name)" color="primary" class="download-icon">file_download</mat-icon>
+        </div>
         <img class="image-preview" (click)="pathChange(entity)" *ngIf="(entity.type == entypes.FILE) && entity.file.includes('image')" src="{{entity.file}}"/>
         <div class="faces">
-            <img class="face" *ngFor="let face of entity.primaryEntity" src="{{face.file}}"/>
+            <img class="face" (click)="openFile(face.file, 'PrimaryEntity-' + face._id)" *ngFor="let face of entity.primaryEntity" src="{{face.file}}"/>
         </div>
         <span>{{entity.name}}</span>
     </div>

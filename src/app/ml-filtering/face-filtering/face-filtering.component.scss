@@ -5,6 +5,8 @@
 
 .faces {
     width: 100%;
+    display: flex;
+    overflow: auto;
     flex-direction: row;
     .face {
         border-radius: 50%;

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { PathLocationStrategy, LocationStrategy } from '@angular/common';
 
 //* 3rd party
 import { ToastrModule } from 'ngx-toastr';
@@ -75,9 +76,10 @@ import { AuthStateComponent } from './auth-state/auth-state.component';
     MatChipsModule,
     MatProgressBarModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true
-  }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
+    { provide: LocationStrategy, useClass: PathLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
