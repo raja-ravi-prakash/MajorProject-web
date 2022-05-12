@@ -33,6 +33,7 @@
         <div class="actions">
             <mat-icon (click)="deleteEntity(entity._id)" color="warn" class="delete-icon">delete</mat-icon>
             <mat-icon *ngIf="entity.type == entypes.FILE" (click)="downloadEntity(entity.file, entity.name)" color="primary" class="download-icon">file_download</mat-icon>
+            <mat-icon (click)="printFile(entity.file, entity.name)" color="accent" class="download-icon">print</mat-icon>
         </div>
         <img class="image-preview" (click)="pathChange(entity)" *ngIf="(entity.type == entypes.FILE) && entity.file.includes('image')" src="{{entity.file}}"/>
         <div class="faces">

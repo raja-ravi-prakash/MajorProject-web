@@ -65,6 +65,16 @@ export class EntityManagementComponent implements OnInit {
         });
   }
 
+  public printFile(dataUri: string, fileName: string){
+    var win = window.open("", "w") as Window;
+    var html  = '<html><head><title></title></head>';
+    html += '<body style="width: 100%; padding: 0; margin: 0;">';
+    html += '<iframe name="c15-major-project" src="' + dataUri + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100vw; height:100vh;" allowfullscreen></iframe>';
+    win.document.write(html);
+    win.document.write("<script defer>setTimeout(()=>{window.print()}, 1000);</script>")
+    win.document.title = fileName;
+  }
+
   public routePop(){
     if(this.path.length == 1)
       return this.router.navigate(['/home']);
